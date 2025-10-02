@@ -7,9 +7,20 @@
   <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+  <!-- Preload critical CSS and third-party styles, then swap to non-blocking -->
+  <link rel="preload" as="style" href="/assets/css/styles.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/styles.css"></noscript>
+
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"></noscript>
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"></noscript>
+
+  <!-- Preload hero image to improve LCP -->
+  <link rel="preload" as="image" href="/assets/images/hero-1.webp" imagesrcset="/assets/images/hero-1.webp" fetchpriority="high">
 </head>
 <body>
 <header class="header">
@@ -17,7 +28,7 @@
   <div class="header__slider">
     <div class="header__slider-slide">
       <h2 class="header__slider-slide-title">Test slider</h2>
-      <img class="header__slider-slide-image" src="/assets/images/hero-1.webp" alt="">
+      <img class="header__slider-slide-image" src="/assets/images/hero-1.webp" alt="" fetchpriority="high" decoding="async" loading="eager">
     </div>
     <div class="header__slider-slide">
       <h2 class="header__slider-slide-title">Owoooooo</h2>
@@ -112,8 +123,8 @@
       </div>
       <div class="footer__right">
           <div class="footer__right__images">
-            <img class="footer__right-images-image" src="/assets/images/building-1.webp" alt="Building" loading="lazy"/>
-            <img class="footer__right-images-image" src="/assets/images/building-2.webp" alt="Building" loading="lazy"/>
+            <img class="footer__right-images-image" src="/assets/images/building-1.webp" alt="Building" loading="lazy" decoding="async"/>
+            <img class="footer__right-images-image" src="/assets/images/building-2.webp" alt="Building" loading="lazy" decoding="async"/>
           </div>
           <div class="footer__right-label">Якість</div>
           <div class="footer__right-tag">понад усе</div>
@@ -121,8 +132,8 @@
     </div>
   </div>
 </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script src="/assets/js/bundle.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script defer src="/assets/js/bundle.js"></script>
 </body>
 </html>
