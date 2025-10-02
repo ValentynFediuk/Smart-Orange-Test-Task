@@ -1,0 +1,657 @@
+// Main SCSS entrypoint.
+// Keep comments in English inside code.
+
+$black: #000;
+$white: #EFF3F5;
+$grey: #A8A8A8;
+$greyDark: #737373;
+$greyLight: rgba(168, 168, 168, 0.2);
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 120%;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  font-family: "Inter Tight", sans-serif;
+  color: $black;
+  background: $white;
+  line-height: 120%;
+}
+
+.container {
+  max-width: 1830px;
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: 15px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+.logo {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.header {
+  position: relative;
+  
+  &__slider-slide {
+    position: relative;
+  }
+  
+  &__slider-slide-image {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+  
+  &__slider-slide-title {
+    margin: 0;
+    padding-block: 190px;
+    text-align: center;
+    color: $white;
+    font-size: 98px;
+    font-weight: 400;
+    line-height: 1;
+  }
+}
+
+.custom-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 36px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  transition: background 0.3s;
+  
+  &:before {
+    content: none;
+  }
+}
+
+.slick-prev.custom-arrow {
+  left: 60px; // позиція лівої стрілки
+}
+
+.slick-next.custom-arrow {
+  right: 100px; // позиція правої стрілки
+}
+
+.decorative-line {
+  position: absolute;
+  bottom: 25px;
+  margin-inline: 60px;
+  left: 0;
+  right: 0;
+  background-color: $black;
+  height: 1px;
+  
+  &:before, &:after {
+    content: "";
+    position: absolute;
+  }
+  
+  &:before {
+    background: url('../images/decor-1.svg') no-repeat;
+    width: 41px;
+    top: -4px;
+    height: 9px;
+  }
+  
+  &:after {
+    background: url('../images/clover.svg') no-repeat;
+    width: 22px;
+    height: 22px;
+    top: -11px;
+    right: -20px;
+  }
+  
+  &--footer {
+    top: 0;
+    margin-inline: 0;
+    background-color: rgba(10, 15, 19, 0.2);
+    margin-left: 60px;
+    margin-right: 100px;
+    
+    &:before {
+      left: -60px;
+    }
+    
+    &:after {
+      color: #0A0F13;
+      font-size: 14px;
+      content: 'Smarto';
+      text-transform: uppercase;
+      font-weight: 500;
+      background-image: none;
+      right: -60px;
+      line-height: 1;
+      top: -6px;
+    }
+  }
+}
+
+.portfolio {
+  padding-block: 100px;
+  
+  &__title {
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 40px;
+  }
+  
+  &__tabs {
+    display: flex;
+    gap: 60px;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 100px;
+    cursor: pointer;
+    overflow: scroll;
+  }
+  
+  &__tabs-item--active {
+    text-decoration: underline;
+  }
+  
+  &__loading,
+  &__empty,
+  &__error {
+    font-size: 18px;
+    color: $greyDark;
+    grid-column: 1/-1;
+  }
+  
+  &__load-more {
+    margin-top: 132px;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-bottom: 1px solid $black;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    font-weight: 600;
+    transition: opacity .2s ease;
+    display: block;
+    margin-inline: auto;
+    
+    &:disabled {
+      opacity: .6;
+      cursor: default;
+    }
+  }
+  
+  &__spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid $greyLight;
+    border-top-color: $greyDark;
+    border-radius: 50%;
+    display: none;
+    animation: spin 0.7s linear infinite;
+  }
+  
+  .is-loading &__spinner {
+    display: inline-block;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Social icons
+.contacts-social {
+  &__list {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  
+  &__list-item-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.contacts-social__list-item {
+  .contacts-social__icon {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.contacts-social__icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.footer__title {
+  font-size: 64px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.contacts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 84px;
+}
+
+.contacts-office__title,
+.contacts-social__title,
+.contacts-phones__title,
+.contacts-email__title {
+  font-size: 24px;
+  margin-bottom: 23px;
+}
+
+.contacts-office__mail {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 42px;
+}
+
+.contacts-office__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  padding: 13px 20px;
+  color: $white;
+  border: 1px solid $black;
+  border-radius: 999px;
+  font-weight: 600;
+  background: $black;
+}
+
+.contacts-office__button:hover {
+  background: $black;
+  color: $white;
+  border-color: $black;
+}
+
+.contacts-office__button-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+}
+
+.contacts-phones__list {
+  display: grid;
+  gap: 8px;
+}
+
+.contacts-phones__item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.contacts-phones__link {
+  font-weight: 600;
+}
+
+.contacts-phones__note {
+  color: $greyDark;
+  font-size: 12px;
+}
+
+.contacts-email__link {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.footer__right {
+  isolation: isolate;
+  flex: 1;
+  
+  &-images {
+    position: relative;
+  }
+  
+  &-images-image {
+    max-width: 680px;
+    height: auto;
+    position: absolute;
+    right: 0;
+    
+    &:first-of-type {
+      z-index: 2;
+      right: 150px;
+    }
+  }
+  
+  &-label {
+    position: absolute;
+    left: 77px;
+    top: 80px;
+    font-size: 96px;
+    color: #503b27;
+    z-index: 3;
+    line-height: 1;
+    mix-blend-mode: hard-light;
+  }
+  
+  &-tag {
+    position: absolute;
+    right: 142px;
+    bottom: -136px;
+    font-size: 96px;
+    color: white;
+    z-index: 3;
+    line-height: 1;
+    mix-blend-mode: exclusion;
+  }
+}
+
+.footer {
+  padding-block: 200px;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  &__left {
+    padding-top: 50px;
+    position: relative;
+    max-width: 880px;
+    width: 100%;
+  }
+  
+  &__right {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.portfolio {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 160px;
+  }
+  
+  &__card {
+    max-width: 440px;
+    width: 100%;
+    border: 1px solid $greyLight;
+    border-bottom: none;
+    position: relative;
+    
+    &-inner {
+      padding: 20px 12px;
+    }
+    
+    &:before, &:after {
+      content: "";
+      position: absolute;
+    }
+    
+    &:before {
+      background: url('../images/pin.svg') no-repeat;
+      width: 50px;
+      height: 52px;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    &:after {
+      background: url('../images/card-bottom.svg') no-repeat;
+      width: 100%;
+      height: 41px;
+      bottom: 0;
+      transform: translateY(100%);
+    }
+  }
+  
+  &__card-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 28px;
+  }
+  
+  &__card-top-year {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  &__card-top-type {
+    line-height: 140%;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 4px 8px;
+    border: 1px solid $grey;
+    border-radius: 20px;
+  }
+  
+  &__card-image {
+    margin-bottom: 12px;
+  }
+  
+  &__card-title {
+    margin-bottom: 28px;
+    font-size: 24px;
+  }
+  
+  &__card-address {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 28px;
+  }
+  
+  &__card-tags-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 9px;
+    text-transform: uppercase;
+  }
+  
+  &__card-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+  
+  &__card-tags-list-item {
+    font-size: 14px;
+    border: 1px solid $greyLight;
+    border-radius: 20px;
+    padding: 4px 8px;
+    color: $greyDark;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}
+
+.contacts {
+  &-office__title {
+    font-size: 24px;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 1800px) {
+  .footer {
+    &__inner {
+      justify-content: center;
+    }
+    &__left {
+      max-width: 100%;
+    }
+    &__right {
+      order: -1;
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .portfolio {
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .footer {
+    &__right-images-image {
+      max-width: 380px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    &__slider-slide-title {
+      font-size: 36px;
+      padding-block: 150px;
+    }
+  }
+  
+  .slick-prev, .slick-next {
+    height: auto;
+  }
+  
+  .slick-prev.custom-arrow {
+    left: 30px; // позиція лівої стрілки
+  }
+  
+  .slick-next.custom-arrow {
+    right: 60px; // позиція правої стрілки
+  }
+  
+  .decorative-line {
+    margin-inline: 30px;
+    
+    &:before {
+      left: -15px;
+    }
+  }
+  .portfolio {
+    padding-block: 50px;
+    
+    &__title {
+      font-size: 30px;
+    }
+    
+    &__list {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 80px;
+    }
+    
+    &__tabs {
+      margin-bottom: 50px;
+    }
+    
+    &__card {
+      margin-inline: auto;
+    }
+    
+    &__card-title {
+      font-size: 20px;
+    }
+    
+    &__card-address {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    
+    &__tabs-item {
+      font-size: 16px;
+    }
+    
+    &__load-more {
+      margin-bottom: 60px;
+    }
+  }
+  
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .footer {
+    padding-block: 50px;
+    &__title {
+      font-size: 44px;
+    }
+  }
+  
+  .contacts-office__title, .contacts-social__title, .contacts-phones__title, .contacts-email__title {
+    font-size: 24px;
+  }
+  
+  .decorative-line {
+    &--footer {
+      margin-right: 120px;
+      margin-left: 15px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .slick-prev.custom-arrow {
+    left: 0; // позиція лівої стрілки
+  }
+  
+  .slick-next.custom-arrow {
+    right: 40; // позиція правої стрілки
+  }
+}

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Text SmartOrange</title>
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+</head>
+<body>
+<header class="header">
+  <a href="/" class="logo">Logo company</a>
+  <div class="header__slider">
+    <div class="header__slider-slide">
+      <h2 class="header__slider-slide-title">Test slider</h2>
+      <img class="header__slider-slide-image" src="/assets/images/hero-1.webp" alt="">
+    </div>
+    <div class="header__slider-slide">
+      <h2 class="header__slider-slide-title">Owoooooo</h2>
+      <img class="header__slider-slide-image" src="/assets/images/hero-2.webp" alt="">
+    </div>
+  </div>
+  <div class="decorative-line"></div>
+</header>
+<main>
+  <section class="portfolio">
+    <div class="container">
+      <div class="portfolio__inner">
+        <h3 class="portfolio__title">Збудовані обʼєкти</h3>
+        <ul class="portfolio__tabs">
+          <li class="portfolio__tabs-item portfolio__tabs-item--active">Усі</li>
+          <li class="portfolio__tabs-item">Житловий</li>
+          <li class="portfolio__tabs-item">Громадський</li>
+          <li class="portfolio__tabs-item">Спортивний</li>
+        </ul>
+        <div id="portfolio-list" class="portfolio__list">
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+
+      <div class="footer__left">
+        <div class="decorative-line decorative-line--footer"></div>
+        <h3 class="footer__title">Контакти</h3>
+        <div class="contacts">
+          <div class="contacts-office">
+            <h6 class="contacts-office__title">Головний офіс:</h6>
+            <a class="contacts-office__mail" href="mailto:SmartorangeTest@gmail.com">SmartorangeTest@gmail.com</a>
+            <a class="contacts-office__button" href="https://www.google.com/maps/search/?api=1&query=ул.+Владимирская,+15" target="_blank" rel="noopener">
+              <span class="contacts-office__button-text">ВІДКРИТИ НА GOOGLE MAPS</span>
+            </a>
+          </div>
+          <div class="contacts-social">
+            <h6 class="contacts-social__title">Наші соцмережі:</h6>
+            <ul class="contacts-social__list">
+              <li class="contacts-social__list-item">
+                <a class="contacts-social__list-item-link" href="https://www.tiktok.com/" target="_blank" rel="noopener">
+                  <svg class="contacts-social__icon" aria-hidden="true">
+                    <use href="/assets/images/sprite.svg#social-tiktok"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="contacts-social__list-item">
+                <a class="contacts-social__list-item-link" href="https://www.instagram.com/" target="_blank" rel="noopener">
+                  <svg class="contacts-social__icon" aria-hidden="true">
+                    <use href="/assets/images/sprite.svg#social-instagram"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="contacts-social__list-item">
+                <a class="contacts-social__list-item-link" href="https://www.youtube.com/" target="_blank" rel="noopener">
+                  <svg class="contacts-social__icon" aria-hidden="true">
+                    <use href="/assets/images/sprite.svg#social-youtube"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="contacts-social__list-item">
+                <a class="contacts-social__list-item-link" href="https://www.facebook.com/" target="_blank" rel="noopener">
+                  <svg class="contacts-social__icon" aria-hidden="true">
+                    <use href="/assets/images/sprite.svg#social-facebook"/>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+            <div class="contacts-phones">
+              <h6 class="contacts-phones__title">Телефони відділів:</h6>
+              <ul class="contacts-phones__list">
+                <li class="contacts-phones__item">
+                  <a href="tel:+3804444444" class="contacts-phones__link">(044) 444-44-44</a>
+                  <span class="contacts-phones__note">( ЮРИДИЧНИЙ ВІДДІЛ )</span>
+                </li>
+                <li class="contacts-phones__item">
+                  <a href="tel:+3805555555" class="contacts-phones__link">(055) 555-55-55</a>
+                  <span class="contacts-phones__note">( БУХГАЛТЕРІЯ )</span>
+                </li>
+              </ul>
+            </div>
+            <div class="contacts-email">
+              <h6 class="contacts-email__title">Email:</h6>
+              <a class="contacts-email__link" href="mailto:office@smarto.ua">office@smarto.ua</a>
+            </div>
+        </div>
+      </div>
+      <div class="footer__right">
+          <div class="footer__right__images">
+            <img class="footer__right-images-image" src="/assets/images/building-1.webp" alt="Building" loading="lazy"/>
+            <img class="footer__right-images-image" src="/assets/images/building-2.webp" alt="Building" loading="lazy"/>
+          </div>
+          <div class="footer__right-label">Якість</div>
+          <div class="footer__right-tag">понад усе</div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="/assets/js/bundle.js"></script>
+</body>
+</html>
